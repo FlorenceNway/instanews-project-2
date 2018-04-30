@@ -25,7 +25,6 @@ $(function(){
 		   var nytItems ="";
 
    
-
 	   if(nytData.length){
 	   		
 	   		nytItems += '<ul>';
@@ -52,11 +51,11 @@ $(function(){
 
 		  	nytItems += '<p class="feedback">Sorry!</p>';
 		}
-	     //$(".stories").hide().fadein('fast').append(nytItems);
-	      $(".stories").append(nytItems);
 
-	   
-	     $(".home-page").height(100).css({'flex-direction':'row'});	   
+
+	    $(".stories").empty().append(nytItems);
+	    
+   	     $(".home-page").height(100).css({'flex-direction':'row'});	   
 	       
 	     $(".img-div").height(70).css({'margin-top':0,'flex':'1 25%'});
 	 
@@ -64,13 +63,16 @@ $(function(){
 	 	
 	 	 $("footer").css({'position':'unset'});
 	  	})
+
+	 	
+
 	  	.fail(function() {
 	    	$('section').append("<p>Sorry, there was a problem, please try again</p>");
 	 	})
 	     
 	}); 
 
-
+	
 });
 
 	 
