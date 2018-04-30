@@ -60,8 +60,9 @@ $(function(){
 	       
 	     $(".img-div").height(70).css({'margin-top':0,'flex':'1 25%'});
 	 
-	     $(".selection").height(70).css({'margin-top':'20px','font-size':'10pt','color':'#fff','flex': '1 50%'});
-	 
+	     $(".selection").height(70).css({'margin-top':'20px','text-align':'left','font-size':'10pt','color':'#fff','flex': '1 50%'});
+	 	
+	 	 $("footer").css({'position':'unset'});
 	  	})
 	  	.fail(function() {
 	    	$('section').append("<p>Sorry, there was a problem, please try again</p>");
