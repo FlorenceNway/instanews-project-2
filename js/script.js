@@ -22,6 +22,7 @@ $(function(){
 
 	 	.done(function(data) {
 		   var nytData = data.results;
+		 //  console.log(data.results[21].multimedia[4].url)
 		   var nytItems ="";
 
    
@@ -30,11 +31,15 @@ $(function(){
 	   		nytItems += '<ul>';
 	   
 	      	$.each(nytData, function(key,value){
-	     
+	     console.log(key, 'value: ', value.url);
 		        nytItems += '<li class="article-item">';
 		        nytItems +='<a href="' + value.url + '"target="_blank"</a>';
 		        nytItems +='<div class="inner-item-wrapper">';
-		        nytItems +='<div class="article-img" style="background-image:url(' + value.multimedia[4].url + ')">';
+		        if(value.multimedia[4].url !== undefined){
+		        	nytItems +='<div class="article-img" style="background-image:url(' + value.multimedia[4].url + ')">';
+		        }else{
+		        	nytItems +='<div class="article-img" style="background-image:url(./build/.img/nyt-logo.svg)">';
+		        }
 		        nytItems +='<div class="abstract">';
 		        nytItems +='<p>' + (value.abstract || 'This story has no description.') + '</p>';
 		        nytItems +='</div>';

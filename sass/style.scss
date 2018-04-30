@@ -50,8 +50,6 @@ section.m-homepage{
 				padding: 8px;
 				/*appearance:none;*/
 				/*background-image: url("https://use.fontawesome.com/releases/v5.0.10/svgs/solid/caret-down.svg");*/
-				
-
 			}
 						
 		}
@@ -118,7 +116,7 @@ footer{
 	
  @media screen and (min-width: 601px) {
 	
-	section.home-page{
+	section.home-page {
 		width: 600px;
 		height: 400px;
 		display: flex;
@@ -149,6 +147,7 @@ footer{
 	ul{
 		display: flex;
 		flex-wrap: wrap;
+		padding: 0 2px;
 
 		li{
 			flex: 1 24%;
