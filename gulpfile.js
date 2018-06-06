@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var uglify = require('gulp-uglify');// minimied
+var uglify = require('gulp-uglify');// minimized
 var rename = require('gulp-rename');
 var browserSync = require('browser-sync').create();
 var eslint = require('gulp-eslint');
@@ -9,11 +9,15 @@ var autoprefixer = require("gulp-autoprefixer");
 var cssnano = require("gulp-cssnano");
 var image = require("gulp-image");
 var imageresize = require("gulp-image-resize");
+var babel = require("gulp-babel");
 
 
 gulp.task('scripts', function(done) {
   return gulp
-      .src(['./js/*.js', '!node_modules/**']) // looking at
+      .src(['./js/script.js', '!node_modules/**']) // looking at
+      .pipe(babel({
+              presets: ["es2015"]
+          }))
       .pipe(eslint()) // run the file
       .pipe(eslint.format())
       .pipe(eslint.failAfterError())
@@ -59,7 +63,6 @@ gulp.task('image', function () {
     .pipe(gulp.dest('./build/img'));
 });
  
-
 
   gulp.task('serve', function() {
     browserSync.init({

@@ -1,3 +1,6 @@
+ /*eslint-env jquery*/
+import {nytimes_url, nytData, section, nytData, nytItems} from './dom-loader';
+import {stories, homepage, img_div, selection, footer} from './styles';
 
 
 $(function(){
@@ -6,9 +9,7 @@ $(function(){
 	$('#my_select').change(function () {
 
 	  	 event.preventDefault();
-	  	 var nytimes_url;
-	  	 var nytData = "";
-	     var section=$(this).val();
+	  	 
 	    
 		nytimes_url ="https://api.nytimes.com/svc/topstories/v2/"+ section +".json?api-key=64e2ac0540b94e90a54c41145a329d59";
 
@@ -21,19 +22,20 @@ $(function(){
 	     })    
 
 	 	.done(function(data) {
-		   var nytData = data.results;
+		  
 		 //  console.log(data.results[21].multimedia[4].url)
-		   var nytItems ="";
-
-   
+		     
 	   if(nytData.length){
 	   		
 	   		nytItems += '<ul>';
 	   
 	      	$.each(nytData, function(key,value){
-	     console.log(key, 'value: ', value.url);
+	 
+	  //console.log(key, 'value: ', value.url);
+	  
 		        nytItems += '<li class="article-item">';
-		        nytItems +='<a href="' + value.url + '"target="_blank"</a>';
+		        //nytItems +='<a href="' + value.url + '"target="_blank">';
+		        nytItems +=`<a href=" ${value.url} " target="_blank">`;
 		        nytItems +='<div class="inner-item-wrapper">';
 		        if(value.multimedia[4].url !== undefined){
 		        	nytItems +='<div class="article-img" style="background-image:url(' + value.multimedia[4].url + ')">';
@@ -54,19 +56,15 @@ $(function(){
 
 		}else{
 
-		  	nytItems += '<p class="feedback">Sorry!</p>';
+		  	nytItems += '<p class="feedback"> Sorry! </p>';
 		}
 
-
-	    $(".stories").empty().append(nytItems);
+			 stories; 
+	   		 homepage ;   
+			 img_div ;
+			 selection ; 
+			 footer ;
 	    
-   	     $(".home-page").height(100).css({'flex-direction':'row'});	   
-	       
-	     $(".img-div").height(70).css({'margin-top':0,'flex':'1 25%'});
-	 
-	     $(".selection").height(70).css({'margin-top':'20px','text-align':'left','font-size':'10pt','color':'#fff','flex': '1 50%'});
-	 	
-	 	 $("footer").css({'position':'unset'});
 	  	})
 
 	 	
