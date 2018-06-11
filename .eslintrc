@@ -2,7 +2,7 @@
   "extends": "eslint:recommended",
   "rules": {
       "no-alert": 1,
-      "camelcase": 1,
+      "camelcase": 0,
       "curly": 1,
       "eqeqeq": 1,
       "no-console": 1,
@@ -17,6 +17,9 @@
     // any globals we want to allow will go here
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jquery": true
   }
 }
